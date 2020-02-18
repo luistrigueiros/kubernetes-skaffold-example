@@ -2,7 +2,7 @@ apiVersion: skaffold/v2alpha3
 kind: Config
 build:
   artifacts:
-  - image: node-example
+  - image: backend-example
     context: backend
     sync:
       manual:
@@ -10,3 +10,8 @@ build:
       # with the container src folder
       - src: 'src/**/*.js'
         dest: .
+deploy:
+  kubectl:
+      manifests:
+        - k8s/postgres-db.yaml
+        - k8s/backend.yaml
