@@ -12,15 +12,9 @@ async function dbConnect() {
   console.log("Connected to database, ok");
 }
 
-function doQuery() {
-  pool.query('SELECT NOW()', (err, res) => {
-    if (err) {
-      console.log(err, res)
-    } else {
-      console.log("Done query");
-    }
-    //pool.end()
-  });
+async function doQuery() {
+  const res = await pool.query('SELECT NOW()');
+  return res.rows[0].message;
 }
 
 //await client.end()

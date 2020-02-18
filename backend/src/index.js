@@ -6,8 +6,8 @@ const port = 3000;
 
 async function handleRoot(req, res) {
   await dbConnect();
-  doQuery();
-  res.send(echo('Hello World 3!'));
+  const date = doQuery();
+  res.send(echo('The date is now ' + date));
 }
 
 app.get('/', handleRoot);
