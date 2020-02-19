@@ -47,7 +47,7 @@ spec:
           livenessProbe:
             exec:
               command:
-                - pg_isready -U admin -d dnvgl
+                - pg_isready -U admin -d mydb
             failureThreshold: 5
             periodSeconds: 15
             timeoutSeconds: 20
