@@ -6,7 +6,7 @@ stages:
 
 cache:
   paths:
-    - node_modules/
+    - backend/node_modules/
 
 install_dependencies:
   stage: build
@@ -14,7 +14,7 @@ install_dependencies:
     - npm --prefix backend/package.json install
   artifacts:
     paths:
-      - node_modules/
+      - backend/node_modules/
 
 testing_testing:
   stage: test
