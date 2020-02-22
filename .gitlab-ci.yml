@@ -11,11 +11,11 @@ cache:
 install_dependencies:
   stage: build
   script:
-    - npm install
+    - npm --prefix backend/package.json install
   artifacts:
     paths:
       - node_modules/
 
 testing_testing:
   stage: test
-  script: npm test
+  script: npm --prefix backend/package.json test
