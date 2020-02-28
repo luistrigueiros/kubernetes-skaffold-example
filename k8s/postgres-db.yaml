@@ -41,16 +41,22 @@ spec:
               value: "5431"
             - name: POSTGRES_PASSWORD
               value: secret
+            - name: PGPASSWORD
+              value: secret
             - name: POSTGRES_USER
               value: admin
           image: postgres:10-alpine
+          readinessProbe:
+            exec:
+              command: ["psql", "-w", "-U", "admin", "-d", "mydb", "-c", "SELECT 1"]
+            initialDelaySeconds: 15
+            timeoutSeconds: 2          
           livenessProbe:
             exec:
-              command:
-                - pg_isready -U admin -d mydb
-            failureThreshold: 5
-            periodSeconds: 15
-            timeoutSeconds: 20
+              command: ["psql", "-w", "-U", "admin", "-d", "mydb", "-c", "SELECT 1"]
+            failureThreshold: 5  
+            initialDelaySeconds: 45
+            timeoutSeconds: 5            
           name: postgres-db
           ports:
             - containerPort: 5431
