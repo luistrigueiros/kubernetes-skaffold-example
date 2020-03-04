@@ -28,7 +28,7 @@ spec:
           - name: SERVICE_NAME
             value: backend2
           - name: DATABASE_URL
-            value: postgres://admin:secret@postgres-db:5431/mydb
+            value: postgres://admin:secret@postgres-db-service:5431/mydb
         image: backend-example
         ports:
         - containerPort: 3000
