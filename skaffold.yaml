@@ -15,5 +15,5 @@ deploy:
       manifests:
         - k8s/postgres-db.yaml
         - k8s/backend1.yaml
+        - k8s/backend2.yaml
         - k8s/backend-ingress.yaml
-#        - k8s/backend2.yaml

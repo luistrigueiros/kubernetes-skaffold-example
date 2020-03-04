@@ -1,32 +1,32 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend1-service
+  name: backend2-service
 spec:
   ports:
   - port: 3000
   type: LoadBalancer
   selector:
-    app: backend1
+    app: backend2
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend1-deployment
+  name: backend2-deployment
 spec:
   selector:
     matchLabels:
-      app: backend1
+      app: backend2
   template:
     metadata:
       labels:
-        app: backend1
+        app: backend2
     spec:
       containers:
-      - name: backend1
+      - name: backend2
         env:
           - name: SERVICE_NAME
-            value: backend1
+            value: backend2
           - name: DATABASE_URL
             value: postgres://admin:secret@postgres-db:5431/mydb
         image: backend-example
