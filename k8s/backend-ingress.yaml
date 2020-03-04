@@ -1,0 +1,8 @@
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: backend-ingress
+spec:
+  backend:
+    serviceName: backend1-service
+    servicePort: 3000
