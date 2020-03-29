@@ -3,6 +3,16 @@ kind: Ingress
 metadata:
   name: backend-ingress
 spec:
-  backend:
-    serviceName: backend1-service
-    servicePort: 3000
+  rules:
+    - host: backend1.lomt.org
+      http:
+        paths:
+          - backend:
+              serviceName: backend1-service
+              servicePort: 3000
+    - host: backend2.lomt.org
+      http:
+        paths:
+          - backend:
+              serviceName: backend2-service
+              servicePort: 3000
